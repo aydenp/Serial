@@ -21,7 +21,7 @@ class SerialAnalysis {
     private var probableVersionTask: URLSessionDataTask?
     
     /// The device's friendly name, such as 'iPhone X' or 'Apple Watch Series 4 Stainless Steel 44mm Silver'
-    var deviceName: String? {
+    private(set) var deviceName: String? {
         didSet {
             // Set the probable OS name based on the device's friendly name
             osFamily = deviceName != nil ? OSFamily.from(deviceName: deviceName!) : nil
@@ -30,7 +30,7 @@ class SerialAnalysis {
     }
     
     /// The most likely OS family this device belongs to, based on the device's friendly name
-    var osFamily: OSFamily? {
+    private(set) var osFamily: OSFamily? {
         didSet {
             guard oldValue != osFamily else { return }
             fetchProbableVersion()
@@ -38,7 +38,7 @@ class SerialAnalysis {
     }
     
     /// The highest version this device can ship on, if available.
-    var probableVersion: String? {
+    private(set) var probableVersion: String? {
         didSet { postUpdateNotification() }
     }
     
