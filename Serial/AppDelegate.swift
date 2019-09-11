@@ -20,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barStyle = .black
         UITextField.appearance().keyboardAppearance = .dark
-        UITableView.appearance().backgroundColor = #colorLiteral(red: 0.1450980392, green: 0.1529411765, blue: 0.2, alpha: 1)
-        UITableView.appearance().separatorColor = #colorLiteral(red: 0.2634820242, green: 0.2633357335, blue: 0.3513149208, alpha: 1)
         UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.172510922, green: 0.1819196939, blue: 0.2327279747, alpha: 1)
         UITableViewCell.appearance().selectedBackgroundView = {
             let view = UIView()

@@ -27,9 +27,18 @@ class HistoryManager {
     private var _items: [Item]?
     var items: [Item] {
         get {
+            // Allow providing fake recents with environment variable
+            if let serialNumbers = ProcessInfo.processInfo.environment["DEMO_FAKE_RECENTS"]?.split(separator: ",") {
+                let date = Calendar.current.date(bySettingHour: 9, minute: 41, second: 0, of: Date()) ?? Date()
+                _items = serialNumbers.map { Item(serialNumber: String($0), date: date) }
+            }
+            
+            // Load from user defaults if not populated
             if _items == nil {
                 _items = UserDefaults.standard.array(forKey: HistoryManager.defaultsKey)?.filter { $0 is Data }.compactMap { try? JSONDecoder().decode(Item.self, from: $0 as! Data) }
             }
+            
+            // Return (possibly newly) stored value or an empty array
             return _items ?? []
         }
         set {

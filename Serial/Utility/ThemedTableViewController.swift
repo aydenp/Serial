@@ -9,6 +9,12 @@
 import UIKit
 
 class ThemedTableViewController: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.backgroundColor = #colorLiteral(red: 0.1450980392, green: 0.1529411765, blue: 0.2, alpha: 1)
+        tableView.separatorColor = #colorLiteral(red: 0.2634820242, green: 0.2633357335, blue: 0.3513149208, alpha: 1)
+    }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.textLabel?.textColor = .white

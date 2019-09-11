@@ -12,6 +12,7 @@ import Vision
 
 class ScannerViewController: UIViewController {
     @IBOutlet weak var previewView: PreviewView!
+    @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var torchItem: UIBarButtonItem!
     @IBOutlet weak var permissionView: UIView!
     @IBOutlet weak var hintLabel: UILabel!
@@ -21,7 +22,16 @@ class ScannerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
+        
+        // Setup navigation bar to be translucent
+        navigationController?.navigationBar.isTranslucent = true
+        
+        // Setup legibility gradient view
+        gradientView.colours = [.clear, UIColor(white: 0, alpha: 0.8)]
+        gradientView.gradientLayer.startPoint = .zero
+        gradientView.gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        
+        setup()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,6 +107,7 @@ class ScannerViewController: UIViewController {
                 self.loadingIcon.isHidden = mode != .loading
                 self.permissionView.isHidden = mode != .needsPermission
                 self.hintLabel.isHidden = mode != .scanning
+                self.gradientView.isHidden = mode != .scanning
             }
         }
     }
@@ -126,6 +137,20 @@ class ScannerViewController: UIViewController {
     }
     
     func setupCam() {
+        // Allow providing fake demo camera input (for use in simulator)
+        if let demoImage = UIImage(named: "DemoFakeCamera") {
+            OperationQueue.main.addOperation {
+                let imageView = UIImageView(image: demoImage)
+                imageView.frame = self.previewView.bounds
+                imageView.contentMode = .scaleAspectFill
+                imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                self.previewView.addSubview(imageView)
+            }
+            
+            self.mode = .scanning
+            return
+        }
+        
         func fail(with error: Error? = nil) {
             self.destroyCam()
             self.showErrorAlert(title: "Camera Error", error: error, unknownMessage: "There was an error trying to access your device's camera.", action: .ok { _ in self.dismiss(animated: true, completion: nil)}, completion: nil)

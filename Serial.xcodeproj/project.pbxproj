@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3134B8F2328B8050005952C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36F1A412256BA170007DC21 /* Assets.xcassets */; };
 		C325FFD2225702400060DFCF /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C325FFD1225702400060DFCF /* ScannerViewController.swift */; };
 		C36F1A3B2256BA150007DC21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A3A2256BA150007DC21 /* AppDelegate.swift */; };
 		C36F1A3D2256BA150007DC21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A3C2256BA150007DC21 /* ViewController.swift */; };
 		C36F1A402256BA150007DC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36F1A3E2256BA150007DC21 /* Main.storyboard */; };
-		C36F1A422256BA170007DC21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36F1A412256BA170007DC21 /* Assets.xcassets */; };
 		C36F1A452256BA170007DC21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36F1A432256BA170007DC21 /* LaunchScreen.storyboard */; };
 		C36F1A4D2256BDBD0007DC21 /* SerialAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A4C2256BDBD0007DC21 /* SerialAnalysis.swift */; };
 		C36F1A4F2256BE350007DC21 /* UIViewController+ShorthandAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A4E2256BE350007DC21 /* UIViewController+ShorthandAlerts.swift */; };
 		C36F1A512256D05F0007DC21 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A502256D05F0007DC21 /* ResultsViewController.swift */; };
 		C36F1A532256DB310007DC21 /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A522256DB310007DC21 /* HistoryManager.swift */; };
+		C3AB0BF42328963900D9BBA8 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB0BF32328963900D9BBA8 /* TextFieldCell.swift */; };
+		C3AB0BF62328964000D9BBA8 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB0BF52328964000D9BBA8 /* ButtonCell.swift */; };
+		C3AB0BF82328964900D9BBA8 /* HistoryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB0BF72328964900D9BBA8 /* HistoryItemCell.swift */; };
+		C3AB0BFA23289B1100D9BBA8 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AB0BF923289B1100D9BBA8 /* GradientView.swift */; };
 		C3C9959B227E9CDC00EE6D63 /* SerialAnalyis+ManufactureLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9959A227E9CDC00EE6D63 /* SerialAnalyis+ManufactureLocation.swift */; };
 		C3C9959D227E9CFE00EE6D63 /* SerialAnalysis+ManufactureDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9959C227E9CFE00EE6D63 /* SerialAnalysis+ManufactureDate.swift */; };
 		C3C9959F227E9D2F00EE6D63 /* SerialAnalysis+OSFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9959E227E9D2F00EE6D63 /* SerialAnalysis+OSFamily.swift */; };
@@ -39,6 +43,10 @@
 		C36F1A4E2256BE350007DC21 /* UIViewController+ShorthandAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShorthandAlerts.swift"; sourceTree = "<group>"; };
 		C36F1A502256D05F0007DC21 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		C36F1A522256DB310007DC21 /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		C3AB0BF32328963900D9BBA8 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		C3AB0BF52328964000D9BBA8 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		C3AB0BF72328964900D9BBA8 /* HistoryItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemCell.swift; sourceTree = "<group>"; };
+		C3AB0BF923289B1100D9BBA8 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C3C9959A227E9CDC00EE6D63 /* SerialAnalyis+ManufactureLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialAnalyis+ManufactureLocation.swift"; sourceTree = "<group>"; };
 		C3C9959C227E9CFE00EE6D63 /* SerialAnalysis+ManufactureDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialAnalysis+ManufactureDate.swift"; sourceTree = "<group>"; };
 		C3C9959E227E9D2F00EE6D63 /* SerialAnalysis+OSFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialAnalysis+OSFamily.swift"; sourceTree = "<group>"; };
@@ -91,6 +99,16 @@
 			path = Serial;
 			sourceTree = "<group>";
 		};
+		C3AB0BF22328963000D9BBA8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C3AB0BF32328963900D9BBA8 /* TextFieldCell.swift */,
+				C3AB0BF52328964000D9BBA8 /* ButtonCell.swift */,
+				C3AB0BF72328964900D9BBA8 /* HistoryItemCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C3C99599227E9C6300EE6D63 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +121,7 @@
 		C3C995A2227E9D8600EE6D63 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				C3AB0BF923289B1100D9BBA8 /* GradientView.swift */,
 				C3D4ED8A22571BD0009EEF45 /* PreviewView.swift */,
 				C3C995A0227E9D7E00EE6D63 /* ThemedTableViewController.swift */,
 				C3C99599227E9C6300EE6D63 /* Extensions */,
@@ -128,6 +147,7 @@
 				C325FFD1225702400060DFCF /* ScannerViewController.swift */,
 				C36F1A502256D05F0007DC21 /* ResultsViewController.swift */,
 				C3D4ED8622571849009EEF45 /* ResultsHeaderView.swift */,
+				C3AB0BF22328963000D9BBA8 /* Cells */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -191,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C36F1A452256BA170007DC21 /* LaunchScreen.storyboard in Resources */,
-				C36F1A422256BA170007DC21 /* Assets.xcassets in Resources */,
+				C3134B8F2328B8050005952C /* Assets.xcassets in Resources */,
 				C36F1A402256BA150007DC21 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,7 +229,10 @@
 				C3C9959B227E9CDC00EE6D63 /* SerialAnalyis+ManufactureLocation.swift in Sources */,
 				C3C9959D227E9CFE00EE6D63 /* SerialAnalysis+ManufactureDate.swift in Sources */,
 				C36F1A3B2256BA150007DC21 /* AppDelegate.swift in Sources */,
+				C3AB0BF82328964900D9BBA8 /* HistoryItemCell.swift in Sources */,
 				C36F1A532256DB310007DC21 /* HistoryManager.swift in Sources */,
+				C3AB0BFA23289B1100D9BBA8 /* GradientView.swift in Sources */,
+				C3AB0BF62328964000D9BBA8 /* ButtonCell.swift in Sources */,
 				C36F1A4D2256BDBD0007DC21 /* SerialAnalysis.swift in Sources */,
 				C3D4ED8B22571BD0009EEF45 /* PreviewView.swift in Sources */,
 				C36F1A512256D05F0007DC21 /* ResultsViewController.swift in Sources */,
@@ -217,6 +240,7 @@
 				C3C9959F227E9D2F00EE6D63 /* SerialAnalysis+OSFamily.swift in Sources */,
 				C3D4ED8722571849009EEF45 /* ResultsHeaderView.swift in Sources */,
 				C3D4ED85225717A9009EEF45 /* String+LessPainfulSubstring.swift in Sources */,
+				C3AB0BF42328963900D9BBA8 /* TextFieldCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,11 +389,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6N2S3YHMFB;
 				INFOPLIST_FILE = Serial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = madebyayden.ios.private.Serial;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -383,11 +408,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6N2S3YHMFB;
 				INFOPLIST_FILE = Serial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = madebyayden.ios.private.Serial;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

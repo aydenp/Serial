@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ep1-I1-p55">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ep1-I1-p55">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +14,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ep1-I1-p55" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ywI-oG-yis">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -38,7 +36,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SerialEntry" id="kXD-2t-4ic" customClass="TextFieldCell" customModule="Serial" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kXD-2t-4ic" id="GsO-Xh-MCH">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -52,7 +50,6 @@
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ABCD1234EFGH" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="liV-dT-X1R">
                                             <rect key="frame" x="137" y="11.5" width="222" height="21"/>
-                                            <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="go" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         </textField>
@@ -71,7 +68,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Button" id="TLJ-Vl-iY4" customClass="ButtonCell" customModule="Serial" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TLJ-Vl-iY4" id="N04-d7-ggG">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -94,21 +91,21 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HistoryItem" textLabel="WRd-fk-Zqg" detailTextLabel="MpY-Wx-OtG" style="IBUITableViewCellStyleSubtitle" id="VhF-8E-opF" customClass="HistoryItemCell" customModule="Serial" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VhF-8E-opF" id="DP1-JN-m22">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="347.5" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Serial" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WRd-fk-Zqg">
-                                            <rect key="frame" x="16" y="5" width="43" height="20.5"/>
+                                            <rect key="frame" x="16" y="10" width="43" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MpY-Wx-OtG">
-                                            <rect key="frame" x="16" y="25.5" width="26.5" height="14.5"/>
+                                            <rect key="frame" x="16" y="31.5" width="26.5" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -131,7 +128,7 @@
                     <navigationItem key="navigationItem" title="Serial" id="jdG-5X-TpN">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gzd-ew-cgz">
                             <connections>
-                                <segue destination="thO-hh-sNl" kind="presentation" modalTransitionStyle="flipHorizontal" id="GD3-nZ-5Ba"/>
+                                <segue destination="thO-hh-sNl" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="GD3-nZ-5Ba"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -152,10 +149,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21e-gV-2Pc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwQ-OY-dd3">
-                                        <rect key="frame" x="32.5" y="233" width="310" height="137.5"/>
+                                        <rect key="frame" x="32.5" y="243" width="310" height="137.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannot Access Camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BK-CG-XeZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="27.5"/>
@@ -198,6 +195,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="yAT-KD-XPn"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vp5-yD-515" customClass="GradientView" customModule="Serial" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="551" width="375" height="116"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position the product box's serial number barcode in the frame." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpj-ng-uE1">
                                 <rect key="frame" x="20" y="591" width="335" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -210,12 +210,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wpj-ng-uE1" firstAttribute="centerY" secondItem="Vp5-yD-515" secondAttribute="centerY" id="1E6-sX-vnJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Vp5-yD-515" secondAttribute="trailing" id="4Wd-QT-RQj"/>
                             <constraint firstItem="wpj-ng-uE1" firstAttribute="leading" secondItem="k3d-Tb-wEl" secondAttribute="leading" constant="20" id="8ne-b2-pAT"/>
                             <constraint firstItem="21e-gV-2Pc" firstAttribute="top" secondItem="k3d-Tb-wEl" secondAttribute="top" id="AqP-Wc-Awo"/>
                             <constraint firstItem="m7z-eB-riA" firstAttribute="top" secondItem="fZK-z1-OLn" secondAttribute="top" id="F8x-9S-UwK"/>
                             <constraint firstItem="21e-gV-2Pc" firstAttribute="leading" secondItem="fZK-z1-OLn" secondAttribute="leading" id="NBt-fb-uQ8"/>
+                            <constraint firstItem="Vp5-yD-515" firstAttribute="leading" secondItem="fZK-z1-OLn" secondAttribute="leading" id="P0s-Pp-htm"/>
                             <constraint firstItem="k3d-Tb-wEl" firstAttribute="trailing" secondItem="wpj-ng-uE1" secondAttribute="trailing" constant="20" id="V1E-Ld-ju9"/>
                             <constraint firstItem="k3d-Tb-wEl" firstAttribute="bottom" secondItem="wpj-ng-uE1" secondAttribute="bottom" constant="40" id="XJw-tX-8cR"/>
+                            <constraint firstAttribute="bottom" secondItem="Vp5-yD-515" secondAttribute="bottom" id="XmI-jv-ovP"/>
                             <constraint firstItem="I5f-zk-hX5" firstAttribute="centerX" secondItem="fZK-z1-OLn" secondAttribute="centerX" id="afI-lg-nvB"/>
                             <constraint firstAttribute="trailing" secondItem="21e-gV-2Pc" secondAttribute="trailing" id="bU0-zP-fqY"/>
                             <constraint firstItem="m7z-eB-riA" firstAttribute="leading" secondItem="fZK-z1-OLn" secondAttribute="leading" id="h2t-tp-clB"/>
@@ -239,6 +243,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gradientView" destination="Vp5-yD-515" id="eAs-Sn-eSV"/>
                         <outlet property="hintLabel" destination="wpj-ng-uE1" id="maK-ni-XNs"/>
                         <outlet property="loadingIcon" destination="I5f-zk-hX5" id="77W-4x-aIC"/>
                         <outlet property="permissionView" destination="21e-gV-2Pc" id="ffm-Uk-cg4"/>
@@ -256,7 +261,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thO-hh-sNl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="pLa-rJ-IvU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
