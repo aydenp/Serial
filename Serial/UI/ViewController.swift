@@ -20,6 +20,11 @@ class ViewController: ThemedTableViewController {
         textField?.text = nil
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textField?.becomeFirstResponder()
+    }
+    
     @objc func analyzeManualEntry() {
         guard let text = textField?.text, SerialAnalysis.isValid(serialNumber: text) else {
             showAlert(title: "Enter a Serial Number", message: "Please enter a valid 12-digit serial number in order to start analysis.")
