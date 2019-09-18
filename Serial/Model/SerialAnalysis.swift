@@ -82,7 +82,8 @@ class SerialAnalysis {
             // im so disappointed in myself :(
             guard let startIndex = xmlString.range(of: "<configCode>")?.upperBound, let endIndex = xmlString.range(of: "</configCode>", options: .init(rawValue: 0), range: startIndex..<xmlString.endIndex, locale: nil)?.lowerBound else { return }
             // seriously wyd
-            self.deviceName = String(xmlString[startIndex..<endIndex])
+            let deviceName = String(xmlString[startIndex..<endIndex])
+            self.deviceName = deviceName.isEmpty ? nil : deviceName
         }.resume()
     }
     
