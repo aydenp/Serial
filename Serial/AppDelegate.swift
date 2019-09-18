@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func applyAppearance() {
         window?.tintColor = UIColor(named: "tint")
         UITextField.appearance().keyboardAppearance = .dark
+        UIToolbar.appearance().barTintColor = UIColor(named: "barTint")
         UITableViewCell.appearance().backgroundColor = UIColor(named: "tableViewCellBackground")
         UITableViewCell.appearance().selectedBackgroundView = {
             let view = UIView()
@@ -29,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }()
         UITextField.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = UIColor(named: "textFieldText")
         UILabel.appearance(whenContainedInInstancesOf: [UITextField.self]).textColor = UIColor(named: "textFieldPlaceholder")
-        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

@@ -128,7 +128,7 @@
                     <navigationItem key="navigationItem" title="Serial" id="jdG-5X-TpN">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gzd-ew-cgz">
                             <connections>
-                                <segue destination="thO-hh-sNl" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="GD3-nZ-5Ba"/>
+                                <segue destination="thO-hh-sNl" kind="presentation" identifier="ShowCamera" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="GD3-nZ-5Ba"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

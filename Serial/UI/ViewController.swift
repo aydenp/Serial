@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: ThemedTableViewController {
+    var manualEntryToolbar: UIToolbar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadHistory), name: HistoryManager.notification, object: nil)
+        
+        manualEntryToolbar = UIToolbar()
+        manualEntryToolbar.items = [
+            UIBarButtonItem(title: "Scan Barcode", style: .plain, target: self, action: #selector(showCamera)),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissTextField))
+        ]
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +45,12 @@ class ViewController: ThemedTableViewController {
         didSet {
             textField?.addTarget(self, action: #selector(analyzeManualEntry), for: .editingDidEndOnExit)
             textField?.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
+            manualEntryToolbar.sizeToFit()
+            textField?.inputAccessoryView = manualEntryToolbar
         }
     }
+    
+    // MARK: - History Loading
     
     private var history = Array(HistoryManager.shared.items.reversed()) {
         didSet { tableView.reloadSections(IndexSet(integer: 1), with: .fade) }
@@ -122,6 +134,14 @@ class ViewController: ThemedTableViewController {
     
     @objc func valueChanged() {
         tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
+    }
+    
+    @objc func showCamera() {
+        performSegue(withIdentifier: "ShowCamera", sender: nil)
+    }
+    
+    @objc func dismissTextField() {
+        textField?.resignFirstResponder()
     }
     
 }
