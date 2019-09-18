@@ -20,14 +20,17 @@ class ViewController: ThemedTableViewController {
         textField?.text = nil
     }
     
-    @objc func analyze() {
-        guard let text = textField?.text else { return }
+    @objc func analyzeManualEntry() {
+        guard let text = textField?.text, SerialAnalysis.isValid(serialNumber: text) else {
+            showAlert(title: "Enter a Serial Number", message: "Please enter a valid 12-digit serial number in order to start analysis.")
+            return
+        }
         ResultsViewController.presentAnalysis(for: text, onViewController: self)
     }
     
     private weak var textField: UITextField? {
         didSet {
-            textField?.addTarget(self, action: #selector(analyze), for: .editingDidEndOnExit)
+            textField?.addTarget(self, action: #selector(analyzeManualEntry), for: .editingDidEndOnExit)
             textField?.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
         }
     }
@@ -65,7 +68,6 @@ class ViewController: ThemedTableViewController {
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "Button") as! ButtonCell
                 cell.button.setTitle("Analyze", for: .normal)
-                cell.isEnabled = !(textField?.text?.isEmpty ?? true) && SerialAnalysis.isValid(serialNumber: textField!.text!)
                 return cell
             default: fatalError("Unknown row.")
             }
@@ -96,7 +98,7 @@ class ViewController: ThemedTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            if indexPath.row == 1 { analyze() }
+            if indexPath.row == 1 { analyzeManualEntry() }
         case 1: ResultsViewController.presentAnalysis(for: history[indexPath.row].serialNumber, onViewController: self)
         default: break
         }

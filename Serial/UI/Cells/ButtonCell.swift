@@ -11,13 +11,22 @@ import UIKit
 class ButtonCell: UITableViewCell {
     @IBOutlet weak var button: UIButton!
     
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        updateSelectionStyle()
+    }
+    
     var isEnabled: Bool {
         get {
             return button.isEnabled
         }
         set {
             button.isEnabled = newValue
-            selectionStyle = newValue ? .default : .none
+            updateSelectionStyle()
         }
+    }
+    
+    private func updateSelectionStyle() {
+        selectionStyle = button.isEnabled ? .default : .none
     }
 }
