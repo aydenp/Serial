@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func applyAppearance() {
         window?.tintColor = UIColor(named: "tint")
         UITextField.appearance().keyboardAppearance = .dark
+        UIScrollView.appearance().indicatorStyle = .white
         UIToolbar.appearance().barTintColor = UIColor(named: "barTint")
         UITableViewCell.appearance().backgroundColor = UIColor(named: "tableViewCellBackground")
         UITableViewCell.appearance().selectedBackgroundView = {
