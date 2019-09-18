@@ -54,5 +54,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    private func returnToHome() -> ViewController? {
+        guard let root = window?.rootViewController as? UINavigationController else { return nil }
+        root.popToRootViewController(animated: false)
+        root.presentedViewController?.dismiss(animated: false, completion: nil)
+        return root.viewControllers.first as? ViewController
+    }
+}
 
+extension AppDelegate {
+    private enum LaunchShortcut: String {
+        case scan
+        
+        init?(shortcutItem: UIApplicationShortcutItem) {
+            guard let identifier = shortcutItem.type.split(separator: ".").last else { return nil }
+            self.init(rawValue: String(identifier))
+        }
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        guard let shortcut = LaunchShortcut(shortcutItem: shortcutItem) else { completionHandler(false); return }
+        switch shortcut {
+        case .scan:
+            returnToHome()?.showCamera()
+        }
+    }
 }
