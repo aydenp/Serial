@@ -91,10 +91,14 @@ class ScannerViewController: UIViewController {
     }
     
     private func updateTorchItem() {
-        torchItem.isEnabled = device?.isTorchAvailable ?? false
-        torchItem.image = UIImage(named: isTorchEnabled ? "Torch_On" : "Torch_Off")
-        torchItem.accessibilityLabel = "Toggle Flashlight"
-        torchItem.accessibilityValue = isTorchEnabled ? "Turn flashlight off" : "Turn flashlight on"
+        let isTorchAvailable = device?.isTorchAvailable ?? false
+        let isTorchEnabled = self.isTorchEnabled
+        DispatchQueue.main.async {
+            self.torchItem.isEnabled = isTorchAvailable
+            self.torchItem.image = UIImage(named: isTorchEnabled ? "Torch_On" : "Torch_Off")
+            self.torchItem.accessibilityLabel = "Toggle Flashlight"
+            self.torchItem.accessibilityValue = isTorchEnabled ? "Turn flashlight off" : "Turn flashlight on"
+        }
     }
     
     var mode = Mode.loading {
