@@ -14,22 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        window?.tintColor = #colorLiteral(red: 0.5157796741, green: 0.639121294, blue: 0.9830529094, alpha: 1)
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.1647058824, green: 0.1647058824, blue: 0.2156862745, alpha: 1)
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barStyle = .black
+        applyAppearance()
+        return true
+    }
+    
+    private func applyAppearance() {
+        window?.tintColor = UIColor(named: "tint")
         UITextField.appearance().keyboardAppearance = .dark
-        UITableViewCell.appearance().backgroundColor = #colorLiteral(red: 0.172510922, green: 0.1819196939, blue: 0.2327279747, alpha: 1)
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "tableViewCellBackground")
         UITableViewCell.appearance().selectedBackgroundView = {
             let view = UIView()
-            view.backgroundColor = #colorLiteral(red: 0.2672416042, green: 0.2670820701, blue: 0.3576419454, alpha: 1)
+            view.backgroundColor = UIColor(named: "tableViewCellSelectionBackground")
             return view
         }()
-        UITextField.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = .white
-        UILabel.appearance(whenContainedInInstancesOf: [UITextField.self]).textColor = .gray
+        UITextField.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = UIColor(named: "textFieldText")
+        UILabel.appearance(whenContainedInInstancesOf: [UITextField.self]).textColor = UIColor(named: "textFieldPlaceholder")
         
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

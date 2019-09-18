@@ -23,9 +23,6 @@ class ScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Setup navigation bar to be translucent
-        navigationController?.navigationBar.isTranslucent = true
-        
         // Setup legibility gradient view
         gradientView.colours = [.clear, UIColor(white: 0, alpha: 0.8)]
         gradientView.gradientLayer.startPoint = .zero

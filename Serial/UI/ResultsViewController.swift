@@ -13,7 +13,11 @@ class ResultsViewController: ThemedTableViewController {
     var analysis: SerialAnalysis!
     
     init(analysis: SerialAnalysis) {
-        super.init(style: .grouped)
+        if #available(iOS 13.0, *) {
+            super.init(style: .insetGrouped)
+        } else {
+            super.init(style: .grouped)
+        }
         self.analysis = analysis
     }
     
@@ -108,7 +112,9 @@ class ResultsViewController: ThemedTableViewController {
     
     static func getPresentableController(analysis: SerialAnalysis) -> UIViewController {
         let vc = ResultsViewController(analysis: analysis)
-        return UINavigationController(rootViewController: vc)
+        let nav = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        nav.setViewControllers([vc], animated: false)
+        return nav
     }
     
     static func presentAnalysis(for serialNumber: String, onViewController viewController: UIViewController) {
