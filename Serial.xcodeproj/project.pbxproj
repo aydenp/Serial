@@ -46,6 +46,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C36D8DF1233439AD000B6F2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36F1A2F2256BA150007DC21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3AE4DD82333E7470011BBDF;
+			remoteInfo = SerialKit;
+		};
 		C3AE4DDE2333E7470011BBDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C36F1A2F2256BA150007DC21 /* Project object */;
@@ -354,6 +361,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C36D8DF2233439AD000B6F2D /* PBXTargetDependency */,
 			);
 			name = "Serial Intents";
 			productName = "Serial Intents";
@@ -483,6 +491,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C36D8DF2233439AD000B6F2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3AE4DD82333E7470011BBDF /* SerialKit */;
+			targetProxy = C36D8DF1233439AD000B6F2D /* PBXContainerItemProxy */;
+		};
 		C3AE4DDF2333E7470011BBDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C3AE4DD82333E7470011BBDF /* SerialKit */;
@@ -647,7 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -668,7 +681,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -695,7 +708,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.serialkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -724,7 +737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.serialkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -746,7 +759,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.intents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -766,7 +779,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.intents;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

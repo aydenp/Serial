@@ -6,6 +6,8 @@ A simple iOS app for looking up an Apple device's serial number.
 
 ![Screenshots](/Assets/Screenshot.png)
 
+[Download IPA](/releases) - [Get it on Dynastic Repo](https://get.dyn.dev/serial) - [Privacy Policy](https://ayden.dev/privacy/serial)
+
 ## How does it work?
 
 Apple device serial numbers follow a known format that makes it trivial to decode their factory, manufacture week, and unique/product model identifier.

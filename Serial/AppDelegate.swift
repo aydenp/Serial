@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }()
         UITextField.appearance(whenContainedInInstancesOf: [UITableViewCell.self]).textColor = UIColor(named: "textFieldText")
         UILabel.appearance(whenContainedInInstancesOf: [UITextField.self]).textColor = UIColor(named: "textFieldPlaceholder")
+        
+        if #available(iOS 13.0, *) {} else {
+            // Fix toolbar being white on iOS 12 and lower (in iOS 13 it takes its keyboard's style, which is okay, because it doesn't force a dark trait collection. Setting this to black on iOS 13 will force a dark trait collection and use a different tint colour than we necessarily want and I really wish this was easier)
+            UIToolbar.appearance().barStyle = .black
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
