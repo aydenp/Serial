@@ -13,14 +13,22 @@ class ViewController: ThemedTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Listen for history change notifications
         NotificationCenter.default.addObserver(self, selector: #selector(reloadHistory), name: HistoryManager.notification, object: nil)
         
+        // Create toolbar to show in manual entry keyboard
         manualEntryToolbar = UIToolbar()
         manualEntryToolbar.items = [
             UIBarButtonItem(title: "Scan Barcode", style: .plain, target: self, action: #selector(showCamera)),
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissTextField))
         ]
+        
+        // Only show large title on iOS 13+ (new blended navigation bar mode looks great, the large + tint does not.)
+        if #available(iOS 13.0, *) {
+            navigationItem.largeTitleDisplayMode = .always
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

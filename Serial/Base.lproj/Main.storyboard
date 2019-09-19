@@ -125,7 +125,7 @@
                             <outlet property="delegate" destination="3HE-PC-7VM" id="MMx-zH-UEU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Serial" id="jdG-5X-TpN">
+                    <navigationItem key="navigationItem" title="Serial" largeTitleDisplayMode="never" id="jdG-5X-TpN">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gzd-ew-cgz">
                             <connections>
                                 <segue destination="thO-hh-sNl" kind="presentation" identifier="ShowCamera" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="GD3-nZ-5Ba"/>
