@@ -40,10 +40,7 @@ public class SerialAnalysis {
     
     /// The most likely OS family this device belongs to, based on the device's friendly name
     public private(set) var osFamily: OSFamily? {
-        didSet {
-            guard oldValue != osFamily else { return }
-            fetchProbableVersion()
-        }
+        didSet { fetchProbableVersion() }
     }
     
     /// The highest version this device can ship on, if available.
@@ -60,29 +57,47 @@ public class SerialAnalysis {
     
     // MARK: - Requests
     
+    /// Whether or not this information is complete (all requests have finished).
+    public var isComplete: Bool {
+        return jobsInProgress.isEmpty
+    }
+    
+    private var jobsInProgress = Set<Job>()
+    
+    /// Jobs that may take additional time to complete.
+    private enum Job {
+        case deviceName, probableVersion
+    }
+    
+    /// The current task checkng the device name, if any
+    private var deviceNameTask: URLSessionDataTask?
     /// Fetches the device name from Apple's Support API given the last few digits of the serial number
     private func fetchDeviceName() {
+        jobsInProgress.insert(.deviceName)
         deviceName = nil
         guard let url = URL(string: "https://support-sp.apple.com/sp/product?cc=\(modelPart)") else { return }
         var request = URLRequest(url: url)
         request.addValue("application/xhtml+xml,application/xml", forHTTPHeaderField: "Accept")
         request.cachePolicy = .returnCacheDataElseLoad
         // Make the request
-        URLSession.shared.dataTask(with: request) { (data, _, error) in
-            guard error == nil, let data = data, let xmlString = String(data: data, encoding: .utf8) else { print("Fetch device name error:", error ?? "none"); return }
+        deviceNameTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
+            guard error == nil, let data = data, let xmlString = String(data: data, encoding: .utf8) else { print("Fetch device name error:", error ?? "none"); self.jobsInProgress.remove(.deviceName); return }
             // Who needs an XML parser, right??
             // im so disappointed in myself :(
             guard let startIndex = xmlString.range(of: "<configCode>")?.upperBound, let endIndex = xmlString.range(of: "</configCode>", options: .init(rawValue: 0), range: startIndex..<xmlString.endIndex, locale: nil)?.lowerBound else { return }
             // seriously wyd
             let deviceName = String(xmlString[startIndex..<endIndex])
             self.deviceName = deviceName.isEmpty ? nil : deviceName
-        }.resume()
+            self.jobsInProgress.remove(.deviceName)
+        }
+        deviceNameTask!.resume()
     }
     
     /// The current task checkng the probable version, if any
     private var probableVersionTask: URLSessionDataTask?
     /// Fetches the probable device version from the data server
     private func fetchProbableVersion() {
+        jobsInProgress.insert(.probableVersion)
         probableVersion = nil
         // Cancel any currently running tasks to find the version
         probableVersionTask?.cancel()
@@ -91,9 +106,10 @@ public class SerialAnalysis {
         // Fetch the version!
         probableVersionTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             // The response is just the version in plain text, so just decode it to a string
-            guard error == nil, let data = data, let string = String(data: data, encoding: .utf8) else { print("Fetch latest version error:", error ?? "none"); return }
+            guard error == nil, let data = data, let string = String(data: data, encoding: .utf8) else { print("Fetch latest version error:", error ?? "none"); self.jobsInProgress.remove(.probableVersion); return }
             self.probableVersion = string
             self.probableVersionTask = nil
+            self.jobsInProgress.remove(.probableVersion)
         }
         probableVersionTask!.resume()
     }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C3134B8F2328B8050005952C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36F1A412256BA170007DC21 /* Assets.xcassets */; };
 		C325FFD2225702400060DFCF /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C325FFD1225702400060DFCF /* ScannerViewController.swift */; };
+		C36D8DEE233416B6000B6F2D /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C3AE4E1E2333F47D0011BBDF /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		C36D8DF02334184C000B6F2D /* AnalyzeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36D8DEF2334184C000B6F2D /* AnalyzeIntentHandler.swift */; };
 		C36F1A3B2256BA150007DC21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A3A2256BA150007DC21 /* AppDelegate.swift */; };
 		C36F1A3D2256BA150007DC21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36F1A3C2256BA150007DC21 /* ViewController.swift */; };
 		C36F1A402256BA150007DC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36F1A3E2256BA150007DC21 /* Main.storyboard */; };
@@ -35,6 +37,9 @@
 		C3AE4DF32333EB7E0011BBDF /* SubtitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE4DF22333EB7E0011BBDF /* SubtitleRow.swift */; };
 		C3AE4DF52333EB830011BBDF /* ActionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE4DF42333EB830011BBDF /* ActionRow.swift */; };
 		C3AE4DF72333EC350011BBDF /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE4DF62333EC350011BBDF /* Value.swift */; };
+		C3AE4E002333F45B0011BBDF /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AE4DFF2333F45B0011BBDF /* IntentHandler.swift */; };
+		C3AE4E162333F45B0011BBDF /* Serial Intents.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C3AE4DFD2333F45B0011BBDF /* Serial Intents.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C3AE4E1F2333F47D0011BBDF /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C3AE4E1E2333F47D0011BBDF /* Intents.intentdefinition */; };
 		C3C995A1227E9D7E00EE6D63 /* ThemedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C995A0227E9D7E00EE6D63 /* ThemedTableViewController.swift */; };
 		C3D4ED8722571849009EEF45 /* ResultsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4ED8622571849009EEF45 /* ResultsHeaderView.swift */; };
 		C3D4ED8B22571BD0009EEF45 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D4ED8A22571BD0009EEF45 /* PreviewView.swift */; };
@@ -47,6 +52,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C3AE4DD82333E7470011BBDF;
 			remoteInfo = SerialKit;
+		};
+		C3AE4E142333F45B0011BBDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36F1A2F2256BA150007DC21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3AE4DFC2333F45B0011BBDF;
+			remoteInfo = "Serial Intents";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,10 +74,23 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3AE4E1D2333F45B0011BBDF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C3AE4E162333F45B0011BBDF /* Serial Intents.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C325FFD1225702400060DFCF /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		C36D8DEC2334144A000B6F2D /* Serial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Serial.entitlements; sourceTree = "<group>"; };
+		C36D8DEF2334184C000B6F2D /* AnalyzeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeIntentHandler.swift; sourceTree = "<group>"; };
 		C36F1A372256BA150007DC21 /* Serial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36F1A3A2256BA150007DC21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C36F1A3C2256BA150007DC21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +116,11 @@
 		C3AE4DF22333EB7E0011BBDF /* SubtitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleRow.swift; sourceTree = "<group>"; };
 		C3AE4DF42333EB830011BBDF /* ActionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRow.swift; sourceTree = "<group>"; };
 		C3AE4DF62333EC350011BBDF /* Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		C3AE4DFD2333F45B0011BBDF /* Serial Intents.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Serial Intents.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3AE4DFF2333F45B0011BBDF /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		C3AE4E012333F45B0011BBDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3AE4E082333F45B0011BBDF /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		C3AE4E1E2333F47D0011BBDF /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		C3C9959A227E9CDC00EE6D63 /* SerialAnalyis+ManufactureLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialAnalyis+ManufactureLocation.swift"; sourceTree = "<group>"; };
 		C3C9959C227E9CFE00EE6D63 /* SerialAnalysis+ManufactureDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialAnalysis+ManufactureDate.swift"; sourceTree = "<group>"; };
 		C3C9959E227E9D2F00EE6D63 /* SerialAnalysis+OSFamily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SerialAnalysis+OSFamily.swift"; sourceTree = "<group>"; };
@@ -116,14 +146,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3AE4DFA2333F45B0011BBDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C36D8DED2334168A000B6F2D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4ED84225717A9009EEF45 /* String+LessPainfulSubstring.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C36F1A2E2256BA150007DC21 = {
 			isa = PBXGroup;
 			children = (
 				C36F1A392256BA150007DC21 /* Serial */,
 				C3AE4DDA2333E7470011BBDF /* SerialKit */,
+				C3AE4DFE2333F45B0011BBDF /* Serial Intents */,
+				C3AE4E072333F45B0011BBDF /* Frameworks */,
 				C36F1A382256BA150007DC21 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,6 +180,7 @@
 			children = (
 				C36F1A372256BA150007DC21 /* Serial.app */,
 				C3AE4DD92333E7470011BBDF /* SerialKit.framework */,
+				C3AE4DFD2333F45B0011BBDF /* Serial Intents.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +188,7 @@
 		C36F1A392256BA150007DC21 /* Serial */ = {
 			isa = PBXGroup;
 			children = (
+				C36D8DEC2334144A000B6F2D /* Serial.entitlements */,
 				C36F1A3A2256BA150007DC21 /* AppDelegate.swift */,
 				C3C995A4227E9D9900EE6D63 /* UI */,
 				C36F1A3E2256BA150007DC21 /* Main.storyboard */,
@@ -169,7 +218,7 @@
 				C3C9959E227E9D2F00EE6D63 /* SerialAnalysis+OSFamily.swift */,
 				C3C9959A227E9CDC00EE6D63 /* SerialAnalyis+ManufactureLocation.swift */,
 				C3C9959C227E9CFE00EE6D63 /* SerialAnalysis+ManufactureDate.swift */,
-				C3D4ED84225717A9009EEF45 /* String+LessPainfulSubstring.swift */,
+				C36D8DED2334168A000B6F2D /* Extensions */,
 				C3AE4DDC2333E7470011BBDF /* Info.plist */,
 			);
 			path = SerialKit;
@@ -186,6 +235,25 @@
 				C3AE4DF42333EB830011BBDF /* ActionRow.swift */,
 			);
 			path = "Row Models";
+			sourceTree = "<group>";
+		};
+		C3AE4DFE2333F45B0011BBDF /* Serial Intents */ = {
+			isa = PBXGroup;
+			children = (
+				C3AE4DFF2333F45B0011BBDF /* IntentHandler.swift */,
+				C36D8DEF2334184C000B6F2D /* AnalyzeIntentHandler.swift */,
+				C3AE4E1E2333F47D0011BBDF /* Intents.intentdefinition */,
+				C3AE4E012333F45B0011BBDF /* Info.plist */,
+			);
+			path = "Serial Intents";
+			sourceTree = "<group>";
+		};
+		C3AE4E072333F45B0011BBDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3AE4E082333F45B0011BBDF /* IntentsUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C3C99599227E9C6300EE6D63 /* Extensions */ = {
@@ -244,11 +312,13 @@
 				C36F1A342256BA150007DC21 /* Frameworks */,
 				C36F1A352256BA150007DC21 /* Resources */,
 				C3AE4DE52333E7470011BBDF /* Embed Frameworks */,
+				C3AE4E1D2333F45B0011BBDF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				C3AE4DDF2333E7470011BBDF /* PBXTargetDependency */,
+				C3AE4E152333F45B0011BBDF /* PBXTargetDependency */,
 			);
 			name = Serial;
 			productName = Serial;
@@ -273,13 +343,30 @@
 			productReference = C3AE4DD92333E7470011BBDF /* SerialKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		C3AE4DFC2333F45B0011BBDF /* Serial Intents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3AE4E1A2333F45B0011BBDF /* Build configuration list for PBXNativeTarget "Serial Intents" */;
+			buildPhases = (
+				C3AE4DF92333F45B0011BBDF /* Sources */,
+				C3AE4DFA2333F45B0011BBDF /* Frameworks */,
+				C3AE4DFB2333F45B0011BBDF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Serial Intents";
+			productName = "Serial Intents";
+			productReference = C3AE4DFD2333F45B0011BBDF /* Serial Intents.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C36F1A2F2256BA150007DC21 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Ayden Panhuyzen";
 				TargetAttributes = {
@@ -288,6 +375,9 @@
 						LastSwiftMigration = 1100;
 					};
 					C3AE4DD82333E7470011BBDF = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					C3AE4DFC2333F45B0011BBDF = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
@@ -307,6 +397,7 @@
 			targets = (
 				C36F1A362256BA150007DC21 /* Serial */,
 				C3AE4DD82333E7470011BBDF /* SerialKit */,
+				C3AE4DFC2333F45B0011BBDF /* Serial Intents */,
 			);
 		};
 /* End PBXProject section */
@@ -329,6 +420,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3AE4DFB2333F45B0011BBDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,6 +434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C36D8DEE233416B6000B6F2D /* Intents.intentdefinition in Sources */,
 				C3C995A1227E9D7E00EE6D63 /* ThemedTableViewController.swift in Sources */,
 				C325FFD2225702400060DFCF /* ScannerViewController.swift in Sources */,
 				C36F1A3D2256BA150007DC21 /* ViewController.swift in Sources */,
@@ -371,6 +470,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3AE4DF92333F45B0011BBDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3AE4E1F2333F47D0011BBDF /* Intents.intentdefinition in Sources */,
+				C3AE4E002333F45B0011BBDF /* IntentHandler.swift in Sources */,
+				C36D8DF02334184C000B6F2D /* AnalyzeIntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -378,6 +487,11 @@
 			isa = PBXTargetDependency;
 			target = C3AE4DD82333E7470011BBDF /* SerialKit */;
 			targetProxy = C3AE4DDE2333E7470011BBDF /* PBXContainerItemProxy */;
+		};
+		C3AE4E152333F45B0011BBDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3AE4DFC2333F45B0011BBDF /* Serial Intents */;
+			targetProxy = C3AE4E142333F45B0011BBDF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -522,6 +636,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Serial/Serial.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6N2S3YHMFB;
 				INFOPLIST_FILE = Serial/Info.plist;
@@ -542,6 +657,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Serial/Serial.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6N2S3YHMFB;
 				INFOPLIST_FILE = Serial/Info.plist;
@@ -560,6 +676,7 @@
 		C3AE4DE32333E7470011BBDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -575,7 +692,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = madebyayden.ios.SerialKit;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.serialkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -588,6 +705,7 @@
 		C3AE4DE42333E7470011BBDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -603,13 +721,53 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = madebyayden.ios.SerialKit;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.serialkit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C3AE4E1B2333F45B0011BBDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6N2S3YHMFB;
+				INFOPLIST_FILE = "Serial Intents/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.intents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3AE4E1C2333F45B0011BBDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6N2S3YHMFB;
+				INFOPLIST_FILE = "Serial Intents/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.ayden.ios.serial.intents;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -639,6 +797,15 @@
 			buildConfigurations = (
 				C3AE4DE32333E7470011BBDF /* Debug */,
 				C3AE4DE42333E7470011BBDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3AE4E1A2333F45B0011BBDF /* Build configuration list for PBXNativeTarget "Serial Intents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3AE4E1B2333F45B0011BBDF /* Debug */,
+				C3AE4E1C2333F45B0011BBDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
