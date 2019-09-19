@@ -13,7 +13,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ep1-I1-p55" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ywI-oG-yis" customClass="NavigationBar" customModule="Serial" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ywI-oG-yis" customClass="ThemedNavigationBar" customModule="Serial" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -260,7 +260,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="thO-hh-sNl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pLa-rJ-IvU" customClass="NavigationBar" customModule="Serial" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pLa-rJ-IvU" customClass="ThemedNavigationBar" customModule="Serial" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -1,5 +1,5 @@
 //
-//  NavigationBar.swift
+//  ThemedNavigationBar.swift
 //  Serial
 //
 //  Created by Ayden Panhuyzen on 2019-09-18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationBar: UINavigationBar {
+class ThemedNavigationBar: UINavigationBar {
 
     override func didMoveToWindow() {
         super.didMoveToWindow()
@@ -24,8 +24,8 @@ class NavigationBar: UINavigationBar {
 
     private func updateStyle() {
         // Using barStyle = black means UIKit always gives us the dark tint colour dynamically, so we have to do that manually
-        if #available(iOS 12.0, *), traitCollection.userInterfaceStyle == .dark {
-            barTintColor = nil
+        if #available(iOS 13.0, *) {
+            barTintColor = UIColor(named: "barTint")?.resolvedColor(with: traitCollection)
         } else {
             barTintColor = UIColor(named: "barTint")
         }

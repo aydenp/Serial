@@ -112,7 +112,7 @@ class ResultsViewController: ThemedTableViewController {
     
     static func getPresentableController(analysis: SerialAnalysis) -> UIViewController {
         let vc = ResultsViewController(analysis: analysis)
-        let nav = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        let nav = UINavigationController(navigationBarClass: ThemedNavigationBar.self, toolbarClass: nil)
         nav.setViewControllers([vc], animated: false)
         return nav
     }
