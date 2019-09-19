@@ -142,22 +142,24 @@ class ViewController: ThemedTableViewController {
     
     // MARK: History Previews
     
-    private var previewingResultsController: UIViewController?
+    private var previewingAnalysis: SerialAnalysis?
     @available(iOS 13.0, *)
     override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         guard let analysis = SerialAnalysis(serialNumber: history[indexPath.row].serialNumber) else { return nil }
         
         // Store in a variable to use for the tap action
-        previewingResultsController = ResultsViewController.getPresentableController(analysis: analysis)
+        previewingAnalysis = analysis
         
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: { self.previewingResultsController }, actionProvider: nil)
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: { ResultsViewController(analysis: analysis) }, actionProvider: nil)
     }
     
     @available(iOS 13.0, *)
-    override func tableView(_ tableView: UITableView, willCommitMenuWithAnimator animator: UIContextMenuInteractionCommitAnimating) {
-        guard let viewController = previewingResultsController else { return }
-        present(viewController, animated: true, completion: nil)
-        previewingResultsController = nil
+    override func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        guard let analysis = previewingAnalysis else { return }
+        animator.addCompletion {
+            ResultsViewController.present(analysis: analysis, onViewController: self)
+        }
+        previewingAnalysis = nil
     }
     
     // MARK: - UITextField actions

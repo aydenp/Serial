@@ -18,7 +18,6 @@ public extension SerialAnalysis {
         public init?(serialNumberPart: String) {
             let yearPart = serialNumberPart.prefix(1), weekPart = serialNumberPart.suffix(1)
             guard let yearValueIndex = SerialAnalysis.ManufactureDate.yearNumbers.firstIndex(where: { $0 == yearPart }), let weekValueIndex = SerialAnalysis.ManufactureDate.weekNumbers.firstIndex(where: { $0 == weekPart }) else { return nil }
-            print("yr1", 2019 - (Double(SerialAnalysis.ManufactureDate.yearNumbers.count - yearValueIndex) / 2.0), SerialAnalysis.ManufactureDate.yearNumbers.count - yearValueIndex, yearPart)
             year = 2019 - (SerialAnalysis.ManufactureDate.yearNumbers.count - yearValueIndex - 1) / 2
             let isHalfYear = yearValueIndex % 2 > 0
             week = weekValueIndex + (isHalfYear ? 26 : 0) + 1

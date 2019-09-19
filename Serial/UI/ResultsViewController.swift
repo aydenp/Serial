@@ -111,16 +111,20 @@ class ResultsViewController: ThemedTableViewController {
     
     // MARK: - Convenience
     
-    static func getPresentableController(analysis: SerialAnalysis) -> UIViewController {
+    static func getPresentableController(analysis: SerialAnalysis) -> UINavigationController {
         let vc = ResultsViewController(analysis: analysis)
         let nav = UINavigationController(navigationBarClass: ThemedNavigationBar.self, toolbarClass: nil)
         nav.setViewControllers([vc], animated: false)
         return nav
     }
     
+    static func present(analysis: SerialAnalysis, onViewController viewController: UIViewController) {
+        viewController.present(getPresentableController(analysis: analysis), animated: true, completion: nil)
+    }
+    
     static func presentAnalysis(for serialNumber: String, onViewController viewController: UIViewController) {
         guard let analysis = SerialAnalysis(serialNumber: serialNumber) else { return }
-        viewController.present(getPresentableController(analysis: analysis), animated: true, completion: nil)
+        present(analysis: analysis, onViewController: viewController)
     }
 }
 
