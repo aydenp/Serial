@@ -4,9 +4,11 @@ A simple iOS app for looking up an Apple device's serial number.
 
 **Warning:** This app was coded quickly in a night as I needed to buy an iOS device with a specific version. Some of the code is not very good, and the methods used in some places make me want to cry.
 
-![Screenshots](/Assets/Screenshot.png)
+![Screenshots](/Assets/Screenshot.png?v2)
 
-[Download IPA](/releases) - [Get it on Dynastic Repo](https://get.dyn.dev/serial) - [Privacy Policy](https://ayden.dev/privacy/serial)
+[Get it on Dynastic Repo](https://get.dyn.dev/serial)
+
+[Download .ipa File](https://github.com/aydenp/Serial/releases)
 
 ## How does it work?
 
@@ -37,4 +39,6 @@ Feel free to contribute to the source code of Serial to make it something even b
 ## License
 
 This project is licensed under the [MIT license](/LICENSE). Please make sure you comply with its terms while using it in any way.
+
+[Privacy Policy](https://ayden.dev/privacy/serial)
 
