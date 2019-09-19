@@ -8,11 +8,11 @@
 
 import Foundation
 
-extension SerialAnalysis {
+public extension SerialAnalysis {
     enum ManufactureLocation: String {
         case FC = "FC", F = "F", XA = "XA", XB = "XB", QP = "QP", G8 = "G8", RN = "RN", CK = "CK", VM = "VM", SG = "SG", E = "E", MB = "MB", PT = "PT", CY = "CY", EE = "EE", QT = "QT", UV = "UV", FK = "FK", F1 = "F1", F2 = "F2", W8 = "W8", DL = "DL", DM = "DM", DN = "DN", YM = "YM", SevenJ = "7J", OneC = "1C", FourH = "4H", WQ = "WQ", F7 = "F7", C0 = "C0", C3 = "C3", C7 = "C7", C1 = "C1", C2 = "C2", RM = "RM", GH = "GH"
         
-        var locationName: String {
+        public var locationName: String {
             switch self {
             case .FC: return "Fountain, Colorado, USA"
             case .F: return "Fremont, California, USA"
@@ -34,7 +34,7 @@ extension SerialAnalysis {
             }
         }
         
-        var factoryOwner: String? {
+        public var factoryOwner: String? {
             switch self {
             case .FC, .F, .CK, .XA, .XB: return "Apple"
             case .VM, .FK, .F1, .F2, .DL, .DM, .DN, .C3: return "Foxconn"

@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Vision
+import SerialKit
 
 class ScannerViewController: UIViewController {
     @IBOutlet weak var previewView: PreviewView!
@@ -216,7 +217,6 @@ class ScannerViewController: UIViewController {
     @IBAction func dismissTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
 }
 
 extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
@@ -224,7 +224,7 @@ extension ScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         guard let text = ((metadataObjects.first {
             guard let barcode = $0 as? AVMetadataMachineReadableCodeObject, let text = barcode.stringValue else { return false }
             return text.count == 13 && text.hasPrefix("S")
-        }) as? AVMetadataMachineReadableCodeObject)?.stringValue?.dropFirst() else { return }
+        }) as? AVMetadataMachineReadableCodeObject)?.stringValue?.dropFirst(), SerialAnalysis.isValid(serialNumber: String(text)) else { return }
         scan(serialNumber: String(text))
     }
 }

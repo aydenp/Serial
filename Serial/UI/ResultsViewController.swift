@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SerialKit
 
 class ResultsViewController: ThemedTableViewController {
     var analysis: SerialAnalysis!
@@ -41,8 +42,8 @@ class ResultsViewController: ThemedTableViewController {
         sections.append(Section(rows: locationRows, header: "Factory"))
         
         // Date info:
-        var dateRows: [RowRepresentable] = [SubtitleRow(title: analysis.manufactureDate?.description ?? "Unknown", subtitle: analysis.manufactureDate?.dateRangeText)]
-        if let age = analysis.manufactureDate?.ageText { dateRows.append(ValueRow(title: "Age", value: age)) }
+        var dateRows: [RowRepresentable] = [SubtitleRow(title: analysis.manufactureDate?.description ?? "Unknown", subtitle: analysis.manufactureDate?.dateRangeDescription)]
+        if let age = analysis.manufactureDate?.ageDescription { dateRows.append(ValueRow(title: "Age", value: age)) }
         sections.append(Section(rows: dateRows, header: "Manufacture Date"))
         
         sections.append(Section(rows: [ValueRow(title: "Family", value: .async { (update) in
@@ -124,125 +125,27 @@ class ResultsViewController: ThemedTableViewController {
     
 }
 
-struct Section {
-    let header: String?, footer: String?
-    let rows: [RowRepresentable]
-    
-    init(rows: [RowRepresentable], header: String? = nil, footer: String? = nil) {
-        self.rows = rows
-        self.header = header
-        self.footer = footer
+extension SerialAnalysis.ManufactureDate {
+    public var dateRangeDescription: String? {
+        guard let start = startDate, let end = endDate else { return nil }
+        return "\(SerialAnalysis.ManufactureDate.startDateFormatter.string(from: start)) to \(SerialAnalysis.ManufactureDate.endDateFormatter.string(from: end))"
     }
     
-    init(row: RowRepresentable, header: String? = nil, footer: String? = nil) {
-        self.init(rows: [row], header: header, footer: footer)
-    }
-}
-
-protocol RowRepresentable {
-    func createCell() -> UITableViewCell
-}
-
-protocol SelectableRowRepresentable: RowRepresentable {
-    func selectedCell()
-}
-
-struct ValueRow: RowRepresentable {
-    let title: String, value: Value
-    
-    init(title: String, value: Value) {
-        self.title = title
-        self.value = value
+    public var ageDescription: String? {
+        guard let start = startDate, let age = Calendar.current.dateComponents([.day], from: start, to: Date()).day else { return nil }
+        return "\(NumberFormatter.localizedString(from: max(0, age - 7) as NSNumber, number: .decimal))–\(NumberFormatter.localizedString(from: age as NSNumber, number: .decimal)) days"
     }
     
-    init(title: String, value: String?) {
-        self.title = title
-        self.value = Value(immediate: value)
-    }
+    // MARK: - Formatting
     
-    func createCell() -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-        cell.textLabel?.text = title
-        value.onUpdate = { value in
-            cell.detailTextLabel?.text = value ?? "—"
-        }
-        cell.selectionStyle = .none
-        return cell
-    }
-}
-
-struct SubtitleRow: RowRepresentable {
-    let title: String, subtitle: String?
-    
-    func createCell() -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = title
-        cell.detailTextLabel?.text = subtitle
-        cell.selectionStyle = .none
-        return cell
-    }
-}
-
-
-struct ActionRow: SelectableRowRepresentable {
-    let title: String, action: () -> ()
-    
-    init(title: String, action: @escaping () -> ()) {
-        self.title = title
-        self.action = action
-    }
-    
-    init(title: String, url: URL?, viewController: UIViewController) {
-        self.title = title
-        self.action = {
-            guard let url = url else { return }
-            let svc = SFSafariViewController(url: url)
-            viewController.present(svc, animated: true, completion: nil)
-        }
-    }
-    
-    func createCell() -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = title
-        cell.selectionStyle = .default
-        cell.accessoryType = .disclosureIndicator
-        return cell
-    }
-    
-    func selectedCell() {
-        action()
-    }
-}
-
-class Value {
-    init(immediate value: String?) {
-        self.value = value
-    }
-    
-    init(block: AsyncValueProviderBlock) {
-        block({ [weak self] in
-            self?.value = $0
-        })
-    }
-    
-    var onUpdate: UpdateBlock? {
-        didSet { fireUpdateHandler() }
-    }
-    
-    private var value: String? {
-        didSet { fireUpdateHandler() }
-    }
-    
-    private func fireUpdateHandler() {
-        DispatchQueue.main.async {
-            self.onUpdate?(self.value)
-        }
-    }
-    
-    static func async(_ block: AsyncValueProviderBlock) -> Value {
-        return Value(block: block)
-    }
-    
-    typealias UpdateBlock = (String?) -> ()
-    typealias AsyncValueProviderBlock = (_ update: @escaping UpdateBlock) -> ()
+    static private let startDateFormatter = { () -> DateFormatter in
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d"
+        return formatter
+    }()
+    static private let endDateFormatter = { () -> DateFormatter in
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d, yyyy"
+        return formatter
+    }()
 }

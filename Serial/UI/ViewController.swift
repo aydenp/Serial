@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SerialKit
 
 class ViewController: ThemedTableViewController {
     var manualEntryToolbar: UIToolbar!

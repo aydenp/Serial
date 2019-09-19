@@ -8,41 +8,14 @@
 
 import Foundation
 
-class SerialAnalysis {
-    typealias UpdateBlock = (SerialAnalysis) -> ()
-    /// Contains blocks to notify when new data is received
-    private var _observers = [UpdateBlock]()
+public class SerialAnalysis {
     /// The full serial number being analyzed.
-    let serialNumber: String
+    public let serialNumber: String
     /// The last digits of the serial number which identify this device's model (Space Grey iPhone X, etc)
-    let modelPart: String
-    let manufactureLocation: ManufactureLocation?, manufactureDate: ManufactureDate?, techSpecsURL: URL?, checkCoverageURL: URL?
+    public let modelPart: String
+    public let manufactureLocation: ManufactureLocation?, manufactureDate: ManufactureDate?, techSpecsURL: URL?, checkCoverageURL: URL?
     
-    private var probableVersionTask: URLSessionDataTask?
-    
-    /// The device's friendly name, such as 'iPhone X' or 'Apple Watch Series 4 Stainless Steel 44mm Silver'
-    private(set) var deviceName: String? {
-        didSet {
-            // Set the probable OS name based on the device's friendly name
-            osFamily = deviceName != nil ? OSFamily.from(deviceName: deviceName!) : nil
-            postUpdateNotification()
-        }
-    }
-    
-    /// The most likely OS family this device belongs to, based on the device's friendly name
-    private(set) var osFamily: OSFamily? {
-        didSet {
-            guard oldValue != osFamily else { return }
-            fetchProbableVersion()
-        }
-    }
-    
-    /// The highest version this device can ship on, if available.
-    private(set) var probableVersion: String? {
-        didSet { postUpdateNotification() }
-    }
-    
-    init?(serialNumber: String) {
+    public init?(serialNumber: String) {
         self.serialNumber = serialNumber.uppercased()
         // Ensure serial number is valid
         guard SerialAnalysis.isValid(serialNumber: self.serialNumber) else { return nil }
@@ -56,17 +29,36 @@ class SerialAnalysis {
         fetchDeviceName()
     }
     
-    /// Notifies our observers that a data change has occurred.
-    private func postUpdateNotification() {
-        DispatchQueue.main.async {
-            self._observers.forEach { $0(self) }
+    /// The device's friendly name, such as 'iPhone X' or 'Apple Watch Series 4 Stainless Steel 44mm Silver'
+    public private(set) var deviceName: String? {
+        didSet {
+            // Set the probable OS name based on the device's friendly name
+            osFamily = deviceName != nil ? OSFamily.from(deviceName: deviceName!) : nil
+            postUpdateNotification()
         }
     }
     
-    static func isValid(serialNumber: String) -> Bool {
+    /// The most likely OS family this device belongs to, based on the device's friendly name
+    public private(set) var osFamily: OSFamily? {
+        didSet {
+            guard oldValue != osFamily else { return }
+            fetchProbableVersion()
+        }
+    }
+    
+    /// The highest version this device can ship on, if available.
+    public private(set) var probableVersion: String? {
+        didSet { postUpdateNotification() }
+    }
+    
+    // MARK: - Pre-validation
+    
+    public static func isValid(serialNumber: String) -> Bool {
         // TODO: There's a lot more to check to make sure it's valid.
         return serialNumber.count == 12
     }
+    
+    // MARK: - Requests
     
     /// Fetches the device name from Apple's Support API given the last few digits of the serial number
     private func fetchDeviceName() {
@@ -87,6 +79,8 @@ class SerialAnalysis {
         }.resume()
     }
     
+    /// The current task checkng the probable version, if any
+    private var probableVersionTask: URLSessionDataTask?
     /// Fetches the probable device version from the data server
     private func fetchProbableVersion() {
         probableVersion = nil
@@ -104,17 +98,28 @@ class SerialAnalysis {
         probableVersionTask!.resume()
     }
     
-    // MARK: - Registration
+    // MARK: - Update Notifications
+    
+    public typealias UpdateBlock = (SerialAnalysis) -> ()
+    /// Contains blocks to notify when new data is received
+    private var _observers = [UpdateBlock]()
     
     /**
       Register an observer to receive future data update notifications about this analysis.
       It will be called immediately to allow populating the data more conveniently.
     */
-    func register(observer: @escaping UpdateBlock) {
+    public func register(observer: @escaping UpdateBlock) {
         _observers.append(observer)
         // Call the observer for convenience
         DispatchQueue.main.async {
             observer(self)
+        }
+    }
+    
+    /// Notifies our observers that a data change has occurred.
+    private func postUpdateNotification() {
+        DispatchQueue.main.async {
+            self._observers.forEach { $0(self) }
         }
     }
 }

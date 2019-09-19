@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension SerialAnalysis {
+public extension SerialAnalysis {
     enum OSFamily: String, CaseIterable {
         case iOS = "ios", macOS = "macos", tvOS = "tvos", watchOS = "watchos", audioOS = "audioos"
         
@@ -22,7 +22,7 @@ extension SerialAnalysis {
             }
         }
         
-        var friendlyName: String {
+        public var friendlyName: String {
             switch self {
             case .iOS: return "iOS"
             case .macOS: return "macOS"
@@ -32,12 +32,12 @@ extension SerialAnalysis {
             }
         }
         
-        func matches(deviceName: String) -> Bool {
+        public func matches(deviceName: String) -> Bool {
             let name = deviceName.lowercased()
             return deviceNameMatches.contains { name.contains($0) }
         }
         
-        static func from(deviceName: String) -> OSFamily? {
+        public static func from(deviceName: String) -> OSFamily? {
             return OSFamily.allCases.first { $0.matches(deviceName: deviceName) }
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SerialKit
 
 class ResultsHeaderView: UIView {
     var analysis: SerialAnalysis!
@@ -30,7 +31,6 @@ class ResultsHeaderView: UIView {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, numberLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fill
         stackView.alignment = .center
         stackView.spacing = 4
         addSubview(stackView)
@@ -38,7 +38,6 @@ class ResultsHeaderView: UIView {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20).isActive = true
         stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
