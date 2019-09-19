@@ -124,7 +124,8 @@ class ViewController: ThemedTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            if indexPath.row == 1 { analyzeManualEntry() }
+            if indexPath.row == 1 { analyzeManualEntry(); return }
+            textField?.becomeFirstResponder()
         case 1: ResultsViewController.presentAnalysis(for: history[indexPath.row].serialNumber, onViewController: self)
         default: break
         }
@@ -137,6 +138,26 @@ class ViewController: ThemedTableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard indexPath.section == 1, editingStyle == .delete else { return }
         HistoryManager.shared.deleteAll(serialNumber: history[indexPath.row].serialNumber)
+    }
+    
+    // MARK: History Previews
+    
+    private var previewingResultsController: UIViewController?
+    @available(iOS 13.0, *)
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        guard let analysis = SerialAnalysis(serialNumber: history[indexPath.row].serialNumber) else { return nil }
+        
+        // Store in a variable to use for the tap action
+        previewingResultsController = ResultsViewController.getPresentableController(analysis: analysis)
+        
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: { self.previewingResultsController }, actionProvider: nil)
+    }
+    
+    @available(iOS 13.0, *)
+    override func tableView(_ tableView: UITableView, willCommitMenuWithAnimator animator: UIContextMenuInteractionCommitAnimating) {
+        guard let viewController = previewingResultsController else { return }
+        present(viewController, animated: true, completion: nil)
+        previewingResultsController = nil
     }
     
     // MARK: - UITextField actions
