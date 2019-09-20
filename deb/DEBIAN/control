@@ -1,0 +1,10 @@
+Package: dev.ayden.ios.serial
+Name: Serial
+Depends: firmware (>= 11.0), org.swift.libswift
+Version: 1.0.3
+Architecture: iphoneos-arm
+Description: Quickly find information such as the manufacture date and model of an Apple device from its serial number.
+Maintainer: Ayden Panhuyzen
+Author: Ayden Panhuyzen
+Section: Utilities
+
