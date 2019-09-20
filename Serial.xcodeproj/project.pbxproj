@@ -180,7 +180,10 @@
 				C3AE4E072333F45B0011BBDF /* Frameworks */,
 				C36F1A382256BA150007DC21 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 		C36F1A382256BA150007DC21 /* Products */ = {
 			isa = PBXGroup;

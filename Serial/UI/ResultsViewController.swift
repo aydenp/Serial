@@ -52,7 +52,7 @@ class ResultsViewController: ThemedTableViewController {
             analysis.register { update($0.probableVersion) }
         })], header: "Operating System", footer: "The latest software version at the end of the week of manufacture. This may be inaccurate for newly released devices."))
         
-        sections.append(Section(rows: [ActionRow(title: "Open Tech Specs", url: analysis.techSpecsURL, viewController: self), ActionRow(title: "Check Coverage", url: analysis.checkCoverageURL, viewController: self)], header: "More Information", footer: nil))
+        sections.append(Section(rows: [ActionRow(title: "Open Tech Specs", url: analysis.techSpecsURL, viewController: self), ActionRow(title: "Check Coverage", url: analysis.checkCoverageURL, viewController: self), ActionRow(title: "EveryMac Lookup", url: analysis.everyMacURL, viewController: self)], header: "More Information", footer: nil))
         
         self.sections = sections
     }
