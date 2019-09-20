@@ -13,7 +13,7 @@ public class SerialAnalysis {
     public let serialNumber: String
     /// The last digits of the serial number which identify this device's model (Space Grey iPhone X, etc)
     public let modelPart: String
-    public let manufactureLocation: ManufactureLocation?, manufactureDate: ManufactureDate?, techSpecsURL: URL?, checkCoverageURL: URL?
+    public let manufactureLocation: ManufactureLocation?, manufactureDate: ManufactureDate?, techSpecsURL: URL?, checkCoverageURL: URL?, everyMacURL: URL?
     
     public init?(serialNumber: String) {
         self.serialNumber = serialNumber.uppercased()
@@ -26,6 +26,7 @@ public class SerialAnalysis {
         // Set Apple Support URLs
         techSpecsURL = URL(string: "https://support-sp.apple.com/sp/index?page=cpuspec&cc=\(modelPart)")
         checkCoverageURL = URL(string: "https://checkcoverage.apple.com/?sn=\(self.serialNumber)")
+        everyMacURL = URL(string: "https://everymac.com/ultimate-mac-lookup/?search_keywords=\(self.serialNumber)")
         fetchDeviceName()
     }
     
