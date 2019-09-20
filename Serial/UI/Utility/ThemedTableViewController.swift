@@ -14,7 +14,6 @@ class ThemedTableViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "background")
         tableView.separatorColor = UIColor(named: "tableViewSeparator")
-
     }
 
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
