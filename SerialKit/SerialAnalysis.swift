@@ -9,6 +9,8 @@
 import Foundation
 
 public class SerialAnalysis {
+    private static let deviceLookupAPI = "https://deviceinfo.madebyayden.co"
+    
     /// The full serial number being analyzed.
     public let serialNumber: String
     /// The last digits of the serial number which identify this device's model (Space Grey iPhone X, etc)
@@ -102,8 +104,15 @@ public class SerialAnalysis {
         probableVersion = nil
         // Cancel any currently running tasks to find the version
         probableVersionTask?.cancel()
+        
         // Construct the URL (this is kinda hard to read)
-        guard let platform = osFamily?.rawValue, let weekEnd = manufactureDate?.endDate?.timeIntervalSince1970, let url = URL(string: "https://deviceinfo.madebyayden.co/\(platform)/\(Int(weekEnd))") else { return }
+        guard let platform = osFamily?.rawValue,
+            let weekStart = manufactureDate?.startDate?.timeIntervalSince1970,
+            let weekEnd = manufactureDate?.endDate?.timeIntervalSince1970,
+            let devicePart = deviceName?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: "\(SerialAnalysis.deviceLookupAPI)/\(platform)/\(Int(weekStart))/\(Int(weekEnd))?device=\(devicePart)")
+            else { return }
+        
         // Fetch the version!
         probableVersionTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             // The response is just the version in plain text, so just decode it to a string
