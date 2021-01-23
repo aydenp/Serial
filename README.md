@@ -4,7 +4,9 @@ A simple iOS app for looking up an Apple device's serial number.
 
 ## Try Reincubate Lookup
 
-Serial has been succeeded by Reincubate Lookup, which you can read more about [here](https://reincubate.com/blog/serial-lookup-imei-checker-for-ios/). It features a brand-new design and tons more information. 
+Serial has been succeeded by Reincubate Lookup, which you can read more about [here](https://reincubate.com/blog/serial-lookup-imei-checker-for-ios/). It features a brand-new design and tons more information.
+
+[![Download on the App Store](https://reincubate.com/res/lookup/i/badges/app_store/app_store_en.svg)](https://apps.apple.com/app/reincubate-lookup/id1483923951)
 
 ---
 
