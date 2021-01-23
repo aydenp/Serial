@@ -2,11 +2,15 @@
 
 A simple iOS app for looking up an Apple device's serial number.
 
-**Warning:** This app was coded quickly in a night as I needed to buy an iOS device with a specific version. Some of the code is not very good, and the methods used in some places make me want to cry.
+## Try Reincubate Lookup
+
+Serial has been succeeded by Reincubate Lookup, which you can read more about [here](https://reincubate.com/blog/serial-lookup-imei-checker-for-ios/). It features a brand-new design and tons more information. 
+
+---
+
+**Warning:** Serial was coded quickly in a night as I needed to buy an iOS device with a specific version.
 
 ![Screenshots](/Assets/Screenshot.png?v2)
-
-[Get it on Dynastic Repo](https://get.dyn.dev/serial)
 
 [Download .ipa File](https://github.com/aydenp/Serial/releases)
 
